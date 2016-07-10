@@ -236,19 +236,6 @@
         
         //rotate the cube
         mat4.rotate(mvMatrix, degToRad(rotation), [0, 1, 0]);
-
-        
-        //try using mat4.lookat
-        //
-        //window.alert(hello);
-        //window.alert(mvMatrix);
-        
-        //"rotate" the camera - couldn't get mat4.lookAt to work
-        //mat4.translate(mvMatrix, [-2,-2,-2]);
-        //mat4.rotate(mvMatrix, degToRad(-pitch), [1, 0, 0]);
-        //mat4.rotate(mvMatrix, degToRad(-yaw), [0, 1, 0]);
-        
-        
         
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
