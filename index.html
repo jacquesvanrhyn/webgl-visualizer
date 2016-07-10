@@ -212,10 +212,6 @@
 
     var rotation = 0;
     
-    var pitch = 20;
-    
-    var yaw = 20;
-
     function drawScene() {
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -232,11 +228,12 @@
         mvPushMatrix();
         
         //eye, center, up, out
-        mat4.lookAt([10,10,10],[0,0,0],[0,1,0],mvMatrix);
+        var y = Math.sin(rotation/50) * 5;
+        mat4.lookAt([10,y,10],[0,0,0],[0,1,0],mvMatrix);
         
         //rotate the cube
         mat4.rotate(mvMatrix, degToRad(rotation), [0, 1, 0]);
-        
+ 
         gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
 
