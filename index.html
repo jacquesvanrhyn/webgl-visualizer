@@ -5,7 +5,8 @@
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 
 <!-- All-important libraries -->
-<script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+    
+<script type="text/javascript" src="glMatrix-0.9.5.min.js"></script> -->    
 <script type="text/javascript" src="webgl-utils.js"></script>
 
 <!-- Look upon my shaders and weep -->
@@ -230,11 +231,15 @@
         
         mvPushMatrix();
         
+        //eye, center, up, out
+        mat4.lookAt([10,10,10],[0,0,0],[0,1,0],mvMatrix);
+        
         //rotate the cube
         mat4.rotate(mvMatrix, degToRad(rotation), [0, 1, 0]);
+
         
         //try using mat4.lookat
-        //hello = mat4.lookAt(mvMatrix, [-1,-1,-1], [0,0,0], [0,1,0]);
+        //
         //window.alert(hello);
         //window.alert(mvMatrix);
         
